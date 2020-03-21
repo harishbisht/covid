@@ -1,0 +1,2558 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "covid-19",
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 21,
+  "iteration": 1584817388694,
+  "links": [],
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "covid",
+      "fill": 1,
+      "fillGradient": 7,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 2,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {}
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "confirmed",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "world",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "confirmed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "first"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "country",
+              "operator": "=~",
+              "value": "/^$country$/"
+            },
+            {
+              "condition": "AND",
+              "key": "state",
+              "operator": "=~",
+              "value": "/^$state$/"
+            }
+          ]
+        },
+        {
+          "alias": "death",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "world",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "death"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "first"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "country",
+              "operator": "=~",
+              "value": "/^$country$/"
+            },
+            {
+              "condition": "AND",
+              "key": "state",
+              "operator": "=~",
+              "value": "/^$state$/"
+            }
+          ]
+        },
+        {
+          "alias": "recovered",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "world",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "recovered"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "first"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "country",
+              "operator": "=~",
+              "value": "/^$country$/"
+            },
+            {
+              "condition": "AND",
+              "key": "state",
+              "operator": "=~",
+              "value": "/^$state$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Covid History for $country",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#FF9830",
+        "#FF9830",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 8
+      },
+      "id": 4,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Confirmed",
+          "groupBy": [],
+          "measurement": "world_todays",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "confirmed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "All Confirmed Cases",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "#F2495C",
+        "#299c46"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 8
+      },
+      "id": 5,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Death",
+          "groupBy": [],
+          "measurement": "world_todays",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "death"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "All Deaths",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#3f6833",
+        "#508642",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 8
+      },
+      "id": 6,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "world_todays",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "recovered"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "All Recovered",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#C4162A",
+        "#bf1b00",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 8
+      },
+      "id": 9,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "india",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "deaths"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "India's total death",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#E02F44",
+        "#bf1b00",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 8
+      },
+      "id": 10,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "india",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "todayDeaths"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "India's today's death",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#1F60C4",
+        "#0a437c",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 0,
+        "y": 13
+      },
+      "id": 7,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "india",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "cases"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "India's total cases",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#FA6400",
+        "#c15c17",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 4,
+        "y": 13
+      },
+      "id": 8,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "india",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "todayCases"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "India's today's cases",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#37872D",
+        "#3f6833",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 8,
+        "y": 13
+      },
+      "id": 11,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "india",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "recovered"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "India's total recovered",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "#3274D9",
+        "#ef843c",
+        "#d44a3a"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 12,
+        "y": 13
+      },
+      "id": 12,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "india",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "active"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "India's active cases",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": false,
+      "colors": [
+        "rgb(140, 73, 65)",
+        "#99440a",
+        "#3274D9"
+      ],
+      "datasource": "covid",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 16,
+        "y": 13
+      },
+      "id": 13,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "alias": "Recovered",
+          "groupBy": [],
+          "measurement": "india",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "critical"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "India's critical cases",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "min"
+    }
+  ],
+  "refresh": "2s",
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [
+    "covid"
+  ],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "India",
+          "value": "India"
+        },
+        "datasource": "covid",
+        "definition": "show series from world",
+        "hide": 0,
+        "includeAll": false,
+        "label": "country",
+        "multi": false,
+        "name": "country",
+        "options": [
+          {
+            "selected": false,
+            "text": "Afghanistan",
+            "value": "Afghanistan"
+          },
+          {
+            "selected": false,
+            "text": "Albania",
+            "value": "Albania"
+          },
+          {
+            "selected": false,
+            "text": "Algeria",
+            "value": "Algeria"
+          },
+          {
+            "selected": false,
+            "text": "Andorra",
+            "value": "Andorra"
+          },
+          {
+            "selected": false,
+            "text": "Antigua_and_Barbuda",
+            "value": "Antigua_and_Barbuda"
+          },
+          {
+            "selected": false,
+            "text": "Argentina",
+            "value": "Argentina"
+          },
+          {
+            "selected": false,
+            "text": "Armenia",
+            "value": "Armenia"
+          },
+          {
+            "selected": false,
+            "text": "Aruba",
+            "value": "Aruba"
+          },
+          {
+            "selected": false,
+            "text": "Australia",
+            "value": "Australia"
+          },
+          {
+            "selected": false,
+            "text": "Austria",
+            "value": "Austria"
+          },
+          {
+            "selected": false,
+            "text": "Azerbaijan",
+            "value": "Azerbaijan"
+          },
+          {
+            "selected": false,
+            "text": "Bahamas\\,_The",
+            "value": "Bahamas\\,_The"
+          },
+          {
+            "selected": false,
+            "text": "Bahrain",
+            "value": "Bahrain"
+          },
+          {
+            "selected": false,
+            "text": "Bangladesh",
+            "value": "Bangladesh"
+          },
+          {
+            "selected": false,
+            "text": "Barbados",
+            "value": "Barbados"
+          },
+          {
+            "selected": false,
+            "text": "Belarus",
+            "value": "Belarus"
+          },
+          {
+            "selected": false,
+            "text": "Belgium",
+            "value": "Belgium"
+          },
+          {
+            "selected": false,
+            "text": "Benin",
+            "value": "Benin"
+          },
+          {
+            "selected": false,
+            "text": "Bhutan",
+            "value": "Bhutan"
+          },
+          {
+            "selected": false,
+            "text": "Bolivia",
+            "value": "Bolivia"
+          },
+          {
+            "selected": false,
+            "text": "Bosnia_and_Herzegovina",
+            "value": "Bosnia_and_Herzegovina"
+          },
+          {
+            "selected": false,
+            "text": "Brazil",
+            "value": "Brazil"
+          },
+          {
+            "selected": false,
+            "text": "Brunei",
+            "value": "Brunei"
+          },
+          {
+            "selected": false,
+            "text": "Bulgaria",
+            "value": "Bulgaria"
+          },
+          {
+            "selected": false,
+            "text": "Burkina_Faso",
+            "value": "Burkina_Faso"
+          },
+          {
+            "selected": false,
+            "text": "Cambodia",
+            "value": "Cambodia"
+          },
+          {
+            "selected": false,
+            "text": "Cameroon",
+            "value": "Cameroon"
+          },
+          {
+            "selected": false,
+            "text": "Canada",
+            "value": "Canada"
+          },
+          {
+            "selected": false,
+            "text": "Cayman_Islands",
+            "value": "Cayman_Islands"
+          },
+          {
+            "selected": false,
+            "text": "Central_African_Republic",
+            "value": "Central_African_Republic"
+          },
+          {
+            "selected": false,
+            "text": "Chad",
+            "value": "Chad"
+          },
+          {
+            "selected": false,
+            "text": "Channel_Islands",
+            "value": "Channel_Islands"
+          },
+          {
+            "selected": false,
+            "text": "Chile",
+            "value": "Chile"
+          },
+          {
+            "selected": false,
+            "text": "China",
+            "value": "China"
+          },
+          {
+            "selected": false,
+            "text": "Colombia",
+            "value": "Colombia"
+          },
+          {
+            "selected": false,
+            "text": "Congo_(Brazzaville)",
+            "value": "Congo_(Brazzaville)"
+          },
+          {
+            "selected": false,
+            "text": "Congo_(Kinshasa)",
+            "value": "Congo_(Kinshasa)"
+          },
+          {
+            "selected": false,
+            "text": "Costa_Rica",
+            "value": "Costa_Rica"
+          },
+          {
+            "selected": false,
+            "text": "Cote_d'Ivoire",
+            "value": "Cote_d'Ivoire"
+          },
+          {
+            "selected": false,
+            "text": "Croatia",
+            "value": "Croatia"
+          },
+          {
+            "selected": false,
+            "text": "Cruise_Ship",
+            "value": "Cruise_Ship"
+          },
+          {
+            "selected": false,
+            "text": "Cuba",
+            "value": "Cuba"
+          },
+          {
+            "selected": false,
+            "text": "Curacao",
+            "value": "Curacao"
+          },
+          {
+            "selected": false,
+            "text": "Cyprus",
+            "value": "Cyprus"
+          },
+          {
+            "selected": false,
+            "text": "Czech_Republic",
+            "value": "Czech_Republic"
+          },
+          {
+            "selected": false,
+            "text": "Czechia",
+            "value": "Czechia"
+          },
+          {
+            "selected": false,
+            "text": "Denmark",
+            "value": "Denmark"
+          },
+          {
+            "selected": false,
+            "text": "Djibouti",
+            "value": "Djibouti"
+          },
+          {
+            "selected": false,
+            "text": "Dominican_Republic",
+            "value": "Dominican_Republic"
+          },
+          {
+            "selected": false,
+            "text": "Ecuador",
+            "value": "Ecuador"
+          },
+          {
+            "selected": false,
+            "text": "Egypt",
+            "value": "Egypt"
+          },
+          {
+            "selected": false,
+            "text": "El_Salvador",
+            "value": "El_Salvador"
+          },
+          {
+            "selected": false,
+            "text": "Equatorial_Guinea",
+            "value": "Equatorial_Guinea"
+          },
+          {
+            "selected": false,
+            "text": "Estonia",
+            "value": "Estonia"
+          },
+          {
+            "selected": false,
+            "text": "Eswatini",
+            "value": "Eswatini"
+          },
+          {
+            "selected": false,
+            "text": "Ethiopia",
+            "value": "Ethiopia"
+          },
+          {
+            "selected": false,
+            "text": "Faroe_Islands",
+            "value": "Faroe_Islands"
+          },
+          {
+            "selected": false,
+            "text": "Fiji",
+            "value": "Fiji"
+          },
+          {
+            "selected": false,
+            "text": "Finland",
+            "value": "Finland"
+          },
+          {
+            "selected": false,
+            "text": "France",
+            "value": "France"
+          },
+          {
+            "selected": false,
+            "text": "French_Guiana",
+            "value": "French_Guiana"
+          },
+          {
+            "selected": false,
+            "text": "Gabon",
+            "value": "Gabon"
+          },
+          {
+            "selected": false,
+            "text": "Gambia\\,_The",
+            "value": "Gambia\\,_The"
+          },
+          {
+            "selected": false,
+            "text": "Georgia",
+            "value": "Georgia"
+          },
+          {
+            "selected": false,
+            "text": "Germany",
+            "value": "Germany"
+          },
+          {
+            "selected": false,
+            "text": "Ghana",
+            "value": "Ghana"
+          },
+          {
+            "selected": false,
+            "text": "Gibraltar",
+            "value": "Gibraltar"
+          },
+          {
+            "selected": false,
+            "text": "Greece",
+            "value": "Greece"
+          },
+          {
+            "selected": false,
+            "text": "Greenland",
+            "value": "Greenland"
+          },
+          {
+            "selected": false,
+            "text": "Guadeloupe",
+            "value": "Guadeloupe"
+          },
+          {
+            "selected": false,
+            "text": "Guam",
+            "value": "Guam"
+          },
+          {
+            "selected": false,
+            "text": "Guatemala",
+            "value": "Guatemala"
+          },
+          {
+            "selected": false,
+            "text": "Guernsey",
+            "value": "Guernsey"
+          },
+          {
+            "selected": false,
+            "text": "Guinea",
+            "value": "Guinea"
+          },
+          {
+            "selected": false,
+            "text": "Guyana",
+            "value": "Guyana"
+          },
+          {
+            "selected": false,
+            "text": "Holy_See",
+            "value": "Holy_See"
+          },
+          {
+            "selected": false,
+            "text": "Honduras",
+            "value": "Honduras"
+          },
+          {
+            "selected": false,
+            "text": "Hong_Kong",
+            "value": "Hong_Kong"
+          },
+          {
+            "selected": false,
+            "text": "Hong_Kong_SAR",
+            "value": "Hong_Kong_SAR"
+          },
+          {
+            "selected": false,
+            "text": "Hungary",
+            "value": "Hungary"
+          },
+          {
+            "selected": false,
+            "text": "Iceland",
+            "value": "Iceland"
+          },
+          {
+            "selected": false,
+            "text": "India",
+            "value": "India"
+          },
+          {
+            "selected": false,
+            "text": "Indonesia",
+            "value": "Indonesia"
+          },
+          {
+            "selected": false,
+            "text": "Iran",
+            "value": "Iran"
+          },
+          {
+            "selected": false,
+            "text": "Iran_(Islamic_Republic_of)",
+            "value": "Iran_(Islamic_Republic_of)"
+          },
+          {
+            "selected": false,
+            "text": "Iraq",
+            "value": "Iraq"
+          },
+          {
+            "selected": false,
+            "text": "Ireland",
+            "value": "Ireland"
+          },
+          {
+            "selected": false,
+            "text": "Israel",
+            "value": "Israel"
+          },
+          {
+            "selected": false,
+            "text": "Italy",
+            "value": "Italy"
+          },
+          {
+            "selected": false,
+            "text": "Ivory_Coast",
+            "value": "Ivory_Coast"
+          },
+          {
+            "selected": false,
+            "text": "Jamaica",
+            "value": "Jamaica"
+          },
+          {
+            "selected": false,
+            "text": "Japan",
+            "value": "Japan"
+          },
+          {
+            "selected": false,
+            "text": "Jersey",
+            "value": "Jersey"
+          },
+          {
+            "selected": false,
+            "text": "Jordan",
+            "value": "Jordan"
+          },
+          {
+            "selected": false,
+            "text": "Kazakhstan",
+            "value": "Kazakhstan"
+          },
+          {
+            "selected": false,
+            "text": "Kenya",
+            "value": "Kenya"
+          },
+          {
+            "selected": false,
+            "text": "Korea\\,_South",
+            "value": "Korea\\,_South"
+          },
+          {
+            "selected": false,
+            "text": "Kosovo",
+            "value": "Kosovo"
+          },
+          {
+            "selected": false,
+            "text": "Kuwait",
+            "value": "Kuwait"
+          },
+          {
+            "selected": false,
+            "text": "Kyrgyzstan",
+            "value": "Kyrgyzstan"
+          },
+          {
+            "selected": false,
+            "text": "Latvia",
+            "value": "Latvia"
+          },
+          {
+            "selected": false,
+            "text": "Lebanon",
+            "value": "Lebanon"
+          },
+          {
+            "selected": false,
+            "text": "Liberia",
+            "value": "Liberia"
+          },
+          {
+            "selected": false,
+            "text": "Liechtenstein",
+            "value": "Liechtenstein"
+          },
+          {
+            "selected": false,
+            "text": "Lithuania",
+            "value": "Lithuania"
+          },
+          {
+            "selected": false,
+            "text": "Luxembourg",
+            "value": "Luxembourg"
+          },
+          {
+            "selected": false,
+            "text": "Macao_SAR",
+            "value": "Macao_SAR"
+          },
+          {
+            "selected": false,
+            "text": "Macau",
+            "value": "Macau"
+          },
+          {
+            "selected": true,
+            "text": "Mainland_China",
+            "value": "Mainland_China"
+          },
+          {
+            "selected": false,
+            "text": "Malaysia",
+            "value": "Malaysia"
+          },
+          {
+            "selected": false,
+            "text": "Maldives",
+            "value": "Maldives"
+          },
+          {
+            "selected": false,
+            "text": "Malta",
+            "value": "Malta"
+          },
+          {
+            "selected": false,
+            "text": "Martinique",
+            "value": "Martinique"
+          },
+          {
+            "selected": false,
+            "text": "Mauritania",
+            "value": "Mauritania"
+          },
+          {
+            "selected": false,
+            "text": "Mauritius",
+            "value": "Mauritius"
+          },
+          {
+            "selected": false,
+            "text": "Mayotte",
+            "value": "Mayotte"
+          },
+          {
+            "selected": false,
+            "text": "Mexico",
+            "value": "Mexico"
+          },
+          {
+            "selected": false,
+            "text": "Moldova",
+            "value": "Moldova"
+          },
+          {
+            "selected": false,
+            "text": "Monaco",
+            "value": "Monaco"
+          },
+          {
+            "selected": false,
+            "text": "Mongolia",
+            "value": "Mongolia"
+          },
+          {
+            "selected": false,
+            "text": "Montenegro",
+            "value": "Montenegro"
+          },
+          {
+            "selected": false,
+            "text": "Morocco",
+            "value": "Morocco"
+          },
+          {
+            "selected": false,
+            "text": "Namibia",
+            "value": "Namibia"
+          },
+          {
+            "selected": false,
+            "text": "Nepal",
+            "value": "Nepal"
+          },
+          {
+            "selected": false,
+            "text": "Netherlands",
+            "value": "Netherlands"
+          },
+          {
+            "selected": false,
+            "text": "New_Zealand",
+            "value": "New_Zealand"
+          },
+          {
+            "selected": false,
+            "text": "Nicaragua",
+            "value": "Nicaragua"
+          },
+          {
+            "selected": false,
+            "text": "Nigeria",
+            "value": "Nigeria"
+          },
+          {
+            "selected": false,
+            "text": "North_Ireland",
+            "value": "North_Ireland"
+          },
+          {
+            "selected": false,
+            "text": "North_Macedonia",
+            "value": "North_Macedonia"
+          },
+          {
+            "selected": false,
+            "text": "Norway",
+            "value": "Norway"
+          },
+          {
+            "selected": false,
+            "text": "Oman",
+            "value": "Oman"
+          },
+          {
+            "selected": false,
+            "text": "Others",
+            "value": "Others"
+          },
+          {
+            "selected": false,
+            "text": "Pakistan",
+            "value": "Pakistan"
+          },
+          {
+            "selected": false,
+            "text": "Palestine",
+            "value": "Palestine"
+          },
+          {
+            "selected": false,
+            "text": "Panama",
+            "value": "Panama"
+          },
+          {
+            "selected": false,
+            "text": "Paraguay",
+            "value": "Paraguay"
+          },
+          {
+            "selected": false,
+            "text": "Peru",
+            "value": "Peru"
+          },
+          {
+            "selected": false,
+            "text": "Philippines",
+            "value": "Philippines"
+          },
+          {
+            "selected": false,
+            "text": "Poland",
+            "value": "Poland"
+          },
+          {
+            "selected": false,
+            "text": "Portugal",
+            "value": "Portugal"
+          },
+          {
+            "selected": false,
+            "text": "Puerto_Rico",
+            "value": "Puerto_Rico"
+          },
+          {
+            "selected": false,
+            "text": "Qatar",
+            "value": "Qatar"
+          },
+          {
+            "selected": false,
+            "text": "Republic_of_Ireland",
+            "value": "Republic_of_Ireland"
+          },
+          {
+            "selected": false,
+            "text": "Republic_of_Korea",
+            "value": "Republic_of_Korea"
+          },
+          {
+            "selected": false,
+            "text": "Republic_of_Moldova",
+            "value": "Republic_of_Moldova"
+          },
+          {
+            "selected": false,
+            "text": "Republic_of_the_Congo",
+            "value": "Republic_of_the_Congo"
+          },
+          {
+            "selected": false,
+            "text": "Reunion",
+            "value": "Reunion"
+          },
+          {
+            "selected": false,
+            "text": "Romania",
+            "value": "Romania"
+          },
+          {
+            "selected": false,
+            "text": "Russia",
+            "value": "Russia"
+          },
+          {
+            "selected": false,
+            "text": "Russian_Federation",
+            "value": "Russian_Federation"
+          },
+          {
+            "selected": false,
+            "text": "Rwanda",
+            "value": "Rwanda"
+          },
+          {
+            "selected": false,
+            "text": "Saint_Barthelemy",
+            "value": "Saint_Barthelemy"
+          },
+          {
+            "selected": false,
+            "text": "Saint_Lucia",
+            "value": "Saint_Lucia"
+          },
+          {
+            "selected": false,
+            "text": "Saint_Martin",
+            "value": "Saint_Martin"
+          },
+          {
+            "selected": false,
+            "text": "Saint_Vincent_and_the_Grenadines",
+            "value": "Saint_Vincent_and_the_Grenadines"
+          },
+          {
+            "selected": false,
+            "text": "San_Marino",
+            "value": "San_Marino"
+          },
+          {
+            "selected": false,
+            "text": "Saudi_Arabia",
+            "value": "Saudi_Arabia"
+          },
+          {
+            "selected": false,
+            "text": "Senegal",
+            "value": "Senegal"
+          },
+          {
+            "selected": false,
+            "text": "Serbia",
+            "value": "Serbia"
+          },
+          {
+            "selected": false,
+            "text": "Seychelles",
+            "value": "Seychelles"
+          },
+          {
+            "selected": false,
+            "text": "Singapore",
+            "value": "Singapore"
+          },
+          {
+            "selected": false,
+            "text": "Slovakia",
+            "value": "Slovakia"
+          },
+          {
+            "selected": false,
+            "text": "Slovenia",
+            "value": "Slovenia"
+          },
+          {
+            "selected": false,
+            "text": "Somalia",
+            "value": "Somalia"
+          },
+          {
+            "selected": false,
+            "text": "South_Africa",
+            "value": "South_Africa"
+          },
+          {
+            "selected": false,
+            "text": "South_Korea",
+            "value": "South_Korea"
+          },
+          {
+            "selected": false,
+            "text": "Spain",
+            "value": "Spain"
+          },
+          {
+            "selected": false,
+            "text": "Sri_Lanka",
+            "value": "Sri_Lanka"
+          },
+          {
+            "selected": false,
+            "text": "St._Martin",
+            "value": "St._Martin"
+          },
+          {
+            "selected": false,
+            "text": "Sudan",
+            "value": "Sudan"
+          },
+          {
+            "selected": false,
+            "text": "Suriname",
+            "value": "Suriname"
+          },
+          {
+            "selected": false,
+            "text": "Sweden",
+            "value": "Sweden"
+          },
+          {
+            "selected": false,
+            "text": "Switzerland",
+            "value": "Switzerland"
+          },
+          {
+            "selected": false,
+            "text": "Taipei_and_environs",
+            "value": "Taipei_and_environs"
+          },
+          {
+            "selected": false,
+            "text": "Taiwan*",
+            "value": "Taiwan*"
+          },
+          {
+            "selected": false,
+            "text": "Taiwan",
+            "value": "Taiwan"
+          },
+          {
+            "selected": false,
+            "text": "Tanzania",
+            "value": "Tanzania"
+          },
+          {
+            "selected": false,
+            "text": "Thailand",
+            "value": "Thailand"
+          },
+          {
+            "selected": false,
+            "text": "The_Bahamas",
+            "value": "The_Bahamas"
+          },
+          {
+            "selected": false,
+            "text": "The_Gambia",
+            "value": "The_Gambia"
+          },
+          {
+            "selected": false,
+            "text": "Togo",
+            "value": "Togo"
+          },
+          {
+            "selected": false,
+            "text": "Trinidad_and_Tobago",
+            "value": "Trinidad_and_Tobago"
+          },
+          {
+            "selected": false,
+            "text": "Tunisia",
+            "value": "Tunisia"
+          },
+          {
+            "selected": false,
+            "text": "Turkey",
+            "value": "Turkey"
+          },
+          {
+            "selected": false,
+            "text": "UK",
+            "value": "UK"
+          },
+          {
+            "selected": false,
+            "text": "US",
+            "value": "US"
+          },
+          {
+            "selected": false,
+            "text": "Ukraine",
+            "value": "Ukraine"
+          },
+          {
+            "selected": false,
+            "text": "United_Arab_Emirates",
+            "value": "United_Arab_Emirates"
+          },
+          {
+            "selected": false,
+            "text": "United_Kingdom",
+            "value": "United_Kingdom"
+          },
+          {
+            "selected": false,
+            "text": "Uruguay",
+            "value": "Uruguay"
+          },
+          {
+            "selected": false,
+            "text": "Uzbekistan",
+            "value": "Uzbekistan"
+          },
+          {
+            "selected": false,
+            "text": "Vatican_City",
+            "value": "Vatican_City"
+          },
+          {
+            "selected": false,
+            "text": "Venezuela",
+            "value": "Venezuela"
+          },
+          {
+            "selected": false,
+            "text": "Viet_Nam",
+            "value": "Viet_Nam"
+          },
+          {
+            "selected": false,
+            "text": "Vietnam",
+            "value": "Vietnam"
+          },
+          {
+            "selected": false,
+            "text": "Zambia",
+            "value": "Zambia"
+          },
+          {
+            "selected": false,
+            "text": "occupied_Palestinian_territory",
+            "value": "occupied_Palestinian_territory"
+          }
+        ],
+        "query": "show series from world",
+        "refresh": 0,
+        "regex": "world,country=(.*),.*",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "Remaining",
+          "value": "Remaining"
+        },
+        "datasource": "covid",
+        "definition": "show series from world",
+        "hide": 0,
+        "includeAll": false,
+        "label": "state",
+        "multi": false,
+        "name": "state",
+        "options": [
+          {
+            "selected": true,
+            "text": "Anhui",
+            "value": "Anhui"
+          },
+          {
+            "selected": false,
+            "text": "Beijing",
+            "value": "Beijing"
+          },
+          {
+            "selected": false,
+            "text": "Chongqing",
+            "value": "Chongqing"
+          },
+          {
+            "selected": false,
+            "text": "Fujian",
+            "value": "Fujian"
+          },
+          {
+            "selected": false,
+            "text": "Gansu",
+            "value": "Gansu"
+          },
+          {
+            "selected": false,
+            "text": "Guangdong",
+            "value": "Guangdong"
+          },
+          {
+            "selected": false,
+            "text": "Guangxi",
+            "value": "Guangxi"
+          },
+          {
+            "selected": false,
+            "text": "Guizhou",
+            "value": "Guizhou"
+          },
+          {
+            "selected": false,
+            "text": "Hainan",
+            "value": "Hainan"
+          },
+          {
+            "selected": false,
+            "text": "Hebei",
+            "value": "Hebei"
+          },
+          {
+            "selected": false,
+            "text": "Heilongjiang",
+            "value": "Heilongjiang"
+          },
+          {
+            "selected": false,
+            "text": "Henan",
+            "value": "Henan"
+          },
+          {
+            "selected": false,
+            "text": "Hubei",
+            "value": "Hubei"
+          },
+          {
+            "selected": false,
+            "text": "Hunan",
+            "value": "Hunan"
+          },
+          {
+            "selected": false,
+            "text": "Inner_Mongolia",
+            "value": "Inner_Mongolia"
+          },
+          {
+            "selected": false,
+            "text": "Jiangsu",
+            "value": "Jiangsu"
+          },
+          {
+            "selected": false,
+            "text": "Jiangxi",
+            "value": "Jiangxi"
+          },
+          {
+            "selected": false,
+            "text": "Jilin",
+            "value": "Jilin"
+          },
+          {
+            "selected": false,
+            "text": "Liaoning",
+            "value": "Liaoning"
+          },
+          {
+            "selected": false,
+            "text": "Ningxia",
+            "value": "Ningxia"
+          },
+          {
+            "selected": false,
+            "text": "Qinghai",
+            "value": "Qinghai"
+          },
+          {
+            "selected": false,
+            "text": "Shaanxi",
+            "value": "Shaanxi"
+          },
+          {
+            "selected": false,
+            "text": "Shandong",
+            "value": "Shandong"
+          },
+          {
+            "selected": false,
+            "text": "Shanghai",
+            "value": "Shanghai"
+          },
+          {
+            "selected": false,
+            "text": "Shanxi",
+            "value": "Shanxi"
+          },
+          {
+            "selected": false,
+            "text": "Sichuan",
+            "value": "Sichuan"
+          },
+          {
+            "selected": false,
+            "text": "Tianjin",
+            "value": "Tianjin"
+          },
+          {
+            "selected": false,
+            "text": "Tibet",
+            "value": "Tibet"
+          },
+          {
+            "selected": false,
+            "text": "Xinjiang",
+            "value": "Xinjiang"
+          },
+          {
+            "selected": false,
+            "text": "Yunnan",
+            "value": "Yunnan"
+          },
+          {
+            "selected": false,
+            "text": "Zhejiang",
+            "value": "Zhejiang"
+          }
+        ],
+        "query": "show series from world",
+        "refresh": 0,
+        "regex": "world,country=$country,state=(.*)",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "covid",
+  "uid": "3",
+  "version": 1
+}
